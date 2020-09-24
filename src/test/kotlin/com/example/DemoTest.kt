@@ -27,5 +27,8 @@ class DemoTest {
         val testClient = WebsocketTestClient(URI("ws://${embeddedServer.host}:${embeddedServer.port}/ws"))
         testClient.connectBlocking()
         testClient.sendPing()
+
+        Thread.sleep(1000)
+        Assertions.assertTrue(testClient.isOpen)
     }
 }
